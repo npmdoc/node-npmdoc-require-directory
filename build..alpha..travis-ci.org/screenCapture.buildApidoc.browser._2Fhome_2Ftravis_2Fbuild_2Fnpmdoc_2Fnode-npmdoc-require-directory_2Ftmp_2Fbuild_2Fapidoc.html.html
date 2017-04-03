@@ -1,0 +1,185 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/troygoode/node-require-directory/">require-directory (v2.1.1)</a>
+</h1>
+<h4>Recursively iterates over specified directory, require()'ing each file, and returning a nested hash structure containing those modules.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.require-directory">module require-directory</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">require-directory.</span>defaults</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.require-directory.defaults">module require-directory.defaults</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">require-directory.defaults.</span>recurse</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.require-directory.defaults.rename">
+            function <span class="apidocSignatureSpan">require-directory.defaults.</span>rename
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.require-directory.defaults.visit">
+            function <span class="apidocSignatureSpan">require-directory.defaults.</span>visit
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">require-directory.defaults.</span>extensions</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.require-directory" id="apidoc.module.require-directory">module require-directory</a></h1>
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.require-directory.defaults" id="apidoc.module.require-directory.defaults">module require-directory.defaults</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.require-directory.defaults.rename" id="apidoc.element.require-directory.defaults.rename">
+        function <span class="apidocSignatureSpan">require-directory.defaults.</span>rename
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rename = function (name) {
+  return name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  obj;
+
+if (fs.statSync(joined).isDirectory() &amp;&amp; options.recurse) {
+  // this node is a directory; recurse
+  files = requireDirectory(m, joined, options);
+  // exclude empty directories
+  if (Object.keys(files).length) {
+    retval[options.<span class="apidocCodeKeywordSpan">rename</span>(filename, joined, filename)] = files;
+  }
+} else {
+  if (joined !== m.filename &amp;&amp; checkFileInclusion(joined, filename, options)) {
+    // hash node key shouldn't include file extension
+    key = filename.substring(0, filename.lastIndexOf('.'));
+    obj = m.require(joined);
+    retval[options.rename(key, joined, filename)] = options.visit(obj, joined, filename) || obj;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.require-directory.defaults.visit" id="apidoc.element.require-directory.defaults.visit">
+        function <span class="apidocSignatureSpan">require-directory.defaults.</span>visit
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">visit = function (obj) {
+  return obj;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        retval[options.rename(filename, joined, filename)] = files;
+      }
+    } else {
+      if (joined !== m.filename &amp;&amp; checkFileInclusion(joined, filename, options)) {
+        // hash node key shouldn't include file extension
+        key = filename.substring(0, filename.lastIndexOf('.'));
+        obj = m.require(joined);
+        retval[options.rename(key, joined, filename)] = options.<span class="apidocCodeKeywordSpan">visit</span>(obj, joined, filename
+) || obj;
+      }
+    }
+  });
+
+  return retval;
+}
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
