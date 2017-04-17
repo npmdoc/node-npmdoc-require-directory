@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/troygoode/node-require-directory/"
-
-    >require-directory (v2.1.1)</a>
+    <a href="https://github.com/troygoode/node-require-directory/">require-directory (v2.1.1)</a>
 </h1>
 <h4>Recursively iterates over specified directory, require()'ing each file, and returning a nested hash structure containing those modules.</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.require-directory">module require-directory</a><ol>
 
@@ -195,7 +188,7 @@
   var retval = {};
 
   // path is optional
-  if (path &#x26;&#x26; !options &#x26;&#x26; typeof path !== &#x27;string&#x27;) {
+  if (path &amp;&amp; !options &amp;&amp; typeof path !== 'string') {
     options = path;
     path = null;
   }
@@ -203,7 +196,7 @@
   // default options
   options = options || {};
   for (var prop in defaultOptions) {
-    if (typeof options[prop] === &#x27;undefined&#x27;) {
+    if (typeof options[prop] === 'undefined') {
       options[prop] = defaultOptions[prop];
     }
   }
@@ -219,7 +212,7 @@
       key,
       obj;
 
-    if (fs.statSync(joined).isDirectory() &#x26;&#x26; options.recurse) {
+    if (fs.statSync(joined).isDirectory() &amp;&amp; options.recurse) {
       // this node is a directory; recurse
       files = requireDirectory(m, joined, options);
       // exclude empty directories
@@ -227,9 +220,9 @@
         retval[options.rename(filename, joined, filename)] = files;
       }
     } else {
-      if (joined !== m.filename &#x26;&#x26; checkFileInclusion(joined, filename, options)) {
-        // hash node key shouldn&#x27;t include file extension
-        key = filename.substring(0, filename.lastIndexOf(&#x27;.&#x27;));
+      if (joined !== m.filename &amp;&amp; checkFileInclusion(joined, filename, options)) {
+        // hash node key shouldn't include file extension
+        key = filename.substring(0, filename.lastIndexOf('.'));
         obj = m.require(joined);
         retval[options.rename(key, joined, filename)] = options.visit(obj, joined, filename) || obj;
       }
@@ -310,7 +303,7 @@
     <li>example usage<pre class="apidocCodePre">...
   obj;
 
-if (fs.statSync(joined).isDirectory() &#x26;&#x26; options.recurse) {
+if (fs.statSync(joined).isDirectory() &amp;&amp; options.recurse) {
   // this node is a directory; recurse
   files = requireDirectory(m, joined, options);
   // exclude empty directories
@@ -318,9 +311,9 @@ if (fs.statSync(joined).isDirectory() &#x26;&#x26; options.recurse) {
     retval[options.<span class="apidocCodeKeywordSpan">rename</span>(filename, joined, filename)] = files;
   }
 } else {
-  if (joined !== m.filename &#x26;&#x26; checkFileInclusion(joined, filename, options)) {
-    // hash node key shouldn&#x27;t include file extension
-    key = filename.substring(0, filename.lastIndexOf(&#x27;.&#x27;));
+  if (joined !== m.filename &amp;&amp; checkFileInclusion(joined, filename, options)) {
+    // hash node key shouldn't include file extension
+    key = filename.substring(0, filename.lastIndexOf('.'));
     obj = m.require(joined);
     retval[options.rename(key, joined, filename)] = options.visit(obj, joined, filename) || obj;
 ...</pre></li>
@@ -342,9 +335,9 @@ if (fs.statSync(joined).isDirectory() &#x26;&#x26; options.recurse) {
         retval[options.rename(filename, joined, filename)] = files;
       }
     } else {
-      if (joined !== m.filename &#x26;&#x26; checkFileInclusion(joined, filename, options)) {
-        // hash node key shouldn&#x27;t include file extension
-        key = filename.substring(0, filename.lastIndexOf(&#x27;.&#x27;));
+      if (joined !== m.filename &amp;&amp; checkFileInclusion(joined, filename, options)) {
+        // hash node key shouldn't include file extension
+        key = filename.substring(0, filename.lastIndexOf('.'));
         obj = m.require(joined);
         retval[options.rename(key, joined, filename)] = options.<span class="apidocCodeKeywordSpan">visit</span>(obj, joined, filename
 ) || obj;
@@ -379,7 +372,7 @@ if (fs.statSync(joined).isDirectory() &#x26;&#x26; options.recurse) {
     <li>example usage<pre class="apidocCodePre">...
   obj;
 
-if (fs.statSync(joined).isDirectory() &#x26;&#x26; options.recurse) {
+if (fs.statSync(joined).isDirectory() &amp;&amp; options.recurse) {
   // this node is a directory; recurse
   files = requireDirectory(m, joined, options);
   // exclude empty directories
@@ -387,9 +380,9 @@ if (fs.statSync(joined).isDirectory() &#x26;&#x26; options.recurse) {
     retval[options.<span class="apidocCodeKeywordSpan">rename</span>(filename, joined, filename)] = files;
   }
 } else {
-  if (joined !== m.filename &#x26;&#x26; checkFileInclusion(joined, filename, options)) {
-    // hash node key shouldn&#x27;t include file extension
-    key = filename.substring(0, filename.lastIndexOf(&#x27;.&#x27;));
+  if (joined !== m.filename &amp;&amp; checkFileInclusion(joined, filename, options)) {
+    // hash node key shouldn't include file extension
+    key = filename.substring(0, filename.lastIndexOf('.'));
     obj = m.require(joined);
     retval[options.rename(key, joined, filename)] = options.visit(obj, joined, filename) || obj;
 ...</pre></li>
@@ -416,9 +409,9 @@ if (fs.statSync(joined).isDirectory() &#x26;&#x26; options.recurse) {
         retval[options.rename(filename, joined, filename)] = files;
       }
     } else {
-      if (joined !== m.filename &#x26;&#x26; checkFileInclusion(joined, filename, options)) {
-        // hash node key shouldn&#x27;t include file extension
-        key = filename.substring(0, filename.lastIndexOf(&#x27;.&#x27;));
+      if (joined !== m.filename &amp;&amp; checkFileInclusion(joined, filename, options)) {
+        // hash node key shouldn't include file extension
+        key = filename.substring(0, filename.lastIndexOf('.'));
         obj = m.require(joined);
         retval[options.rename(key, joined, filename)] = options.<span class="apidocCodeKeywordSpan">visit</span>(obj, joined, filename
 ) || obj;
@@ -458,3 +451,4 @@ if (fs.statSync(joined).isDirectory() &#x26;&#x26; options.recurse) {
     ]
 </div>
 </div>
+</body></html>
