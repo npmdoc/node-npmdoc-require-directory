@@ -1,7 +1,7 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
     "buildNpmdoc": "require-directory",
-    "description": "api documentation for [require-directory (v2.1.1)](https://github.com/troygoode/node-require-directory/) [![npm package](https://img.shields.io/npm/v/npmdoc-require-directory.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-require-directory) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-require-directory.svg)](https://travis-ci.org/npmdoc/node-npmdoc-require-directory)",
+    "description": "#### basic api documentation for  [require-directory (v2.1.1)](https://github.com/troygoode/node-require-directory/)  [![npm package](https://img.shields.io/npm/v/npmdoc-require-directory.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-require-directory) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-require-directory.svg)](https://travis-ci.org/npmdoc/node-npmdoc-require-directory)",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "require-directory": "*",
@@ -36,5 +36,5 @@
         "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
         "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "0.0.2"
+    "version": "2017.4.25"
 }
